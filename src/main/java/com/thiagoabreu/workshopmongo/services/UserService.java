@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -30,6 +31,17 @@ public class UserService {
     public void deleteById(String id) {
         findById(id);
         repository.deleteById(id);
+    }
+
+    public User update(User obj) {
+        User user = findById(obj.getId());
+        if (obj.getName() != null){
+            user.setName(obj.getName());
+        }
+        if (obj.getEmail() != null){
+            user.setEmail(obj.getEmail());
+        }
+        return repository.save(user);
     }
 
     public User fromDTO(UserDTO objDto){

@@ -2,6 +2,7 @@ package com.thiagoabreu.workshopmongo.dto;
 
 import com.thiagoabreu.workshopmongo.domain.User;
 
+
 public class UserDTO {
 
     private String id;
@@ -11,7 +12,7 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(User obj){
+    public UserDTO(User obj) {
         id = obj.getId();
         name = obj.getName();
         email = obj.getEmail();
